@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 
 import CodeLogo from '../../assets/codeburger-logo.svg'
 import RegisterImage from '../../assets/register-img.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import api from '../../services/api'
 import {
   Container,
@@ -19,7 +19,7 @@ import {
   ErrorMessage
 } from './styles'
 
-function Login() {
+export function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
     email: Yup.string()
@@ -123,5 +123,3 @@ function Login() {
     </Container>
   )
 }
-
-export default Login
