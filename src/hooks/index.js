@@ -10,8 +10,8 @@ const AppProvider = ({ children }) => (
   </CartProvider>
 )
 
-export default AppProvider
-
 AppProvider.propTypes = {
   children: PropTypes.node
 }
+
+export default AppProvider

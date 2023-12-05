@@ -14,7 +14,13 @@ export function ProductCard({ product }) {
       <div>
         <ProductName>{product.name}</ProductName>
         <ProductPrice>{product.formatedPrice}</ProductPrice>
-        <Button onClick={() => putProductInCart(product)}>Adicionar</Button>
+        <Button
+          onClick={() => {
+            putProductInCart(product)
+          }}
+        >
+          Adicionar
+        </Button>
       </div>
     </Container>
   )
