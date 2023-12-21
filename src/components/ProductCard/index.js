@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { useCart } from '../../hooks/CartContext'
 import { Button } from '../Button'
 import { Container, Image, ProductName, ProductPrice } from './styles'
-
 export function ProductCard({ product }) {
   const { putProductInCart } = useCart()
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -16,6 +17,7 @@ export function ProductCard({ product }) {
         <ProductPrice>{product.formatedPrice}</ProductPrice>
         <Button
           onClick={() => {
+            navigate('/carrinho')
             putProductInCart(product)
           }}
         >

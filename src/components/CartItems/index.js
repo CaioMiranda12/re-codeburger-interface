@@ -1,5 +1,6 @@
 import React from 'react'
 
+import trashIcon from '../../assets/trashIcon.png'
 import { useCart } from '../../hooks/CartContext'
 import formatCurrency from '../../utils/formatCurrency'
 import { Container, Header, Body, EmptyCard } from './syles'
@@ -29,7 +30,9 @@ export function CartItems() {
                 <p>{product.quantity}</p>
                 <button onClick={() => increaseQuantity(product.id)}>+</button>
               </div>
-              <button onClick={() => deleteProduct(product.id)}>trash</button>
+              <button onClick={() => deleteProduct(product.id)}>
+                <img src={trashIcon} />
+              </button>
             </div>
             <p style={{ fontWeight: 500 }}>
               {formatCurrency(product.price * product.quantity)}

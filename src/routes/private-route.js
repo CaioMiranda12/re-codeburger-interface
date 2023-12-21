@@ -4,16 +4,20 @@ import { Navigate } from 'react-router-dom'
 
 import { Header } from '../components'
 
-function PrivateRoute({ children }) {
+function PrivateRoute({ children, isAdmin }) {
   const user = localStorage.getItem('codeburger:userData')
 
   if (!user) {
     return <Navigate to="/login" replace={true} />
   }
 
+  if (isAdmin && !JSON.parse(user).admin) {
+    return <Navigate to={'/'} />
+  }
+
   return (
     <>
-      <Header />
+      {!isAdmin && <Header />}
       {children}
     </>
   )
@@ -22,5 +26,6 @@ function PrivateRoute({ children }) {
 export default PrivateRoute
 
 PrivateRoute.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+  isAdmin: PropTypes.bool
 }

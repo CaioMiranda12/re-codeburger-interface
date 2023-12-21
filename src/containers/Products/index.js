@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import ProductLogo from '../../assets/ProductImg.svg'
 import { ProductCard } from '../../components'
@@ -13,16 +14,18 @@ import {
   ProductContainer
 } from './syles'
 
-export function Products({ location: { state } }) {
+export function Products() {
+  const { state } = useLocation()
+
   let categoryId = 0
   if (state?.categoryId) {
     categoryId = state.categoryId
   }
 
   const [categories, setCategories] = useState([])
-  const [activeCategory, setActiveCategory] = useState(categoryId)
   const [products, setProducts] = useState([])
   const [filteredproducts, setFilteredProducts] = useState([])
+  const [activeCategory, setActiveCategory] = useState(categoryId)
 
   useEffect(() => {
     async function loadCategories() {

@@ -29,6 +29,7 @@ export const Body = styled.div`
   padding: 10px;
   grid-gap: 10px 15px;
   width: max-content;
+
   p {
     color: #000;
     font-size: 16px;
@@ -54,6 +55,10 @@ export const Body = styled.div`
       background: transparent;
       cursor: pointer;
       font-size: 24px;
+
+      img {
+        width: 50px;
+      }
     }
 
     p {

@@ -56,7 +56,11 @@ export function Login() {
 
     putUserData(data)
 
-    navigate('/')
+    if (data.admin) {
+      navigate('/pedidos')
+    } else {
+      navigate('/')
+    }
   }
 
   return (
